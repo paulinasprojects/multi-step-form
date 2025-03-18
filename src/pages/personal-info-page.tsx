@@ -44,7 +44,7 @@ export const PersonalInfoPage = () => {
             First Name
         </label>
         <input 
-          className="border-l border-[#ffeb00] focus:bg-[#ffeb00] outline-none p-2 focus:rounded-sm focus:text-[#2A004E] text-[#ffeb00] font-bold" 
+          className="border-l border-[#fff] focus:bg-[#fff] outline-none p-2 focus:rounded-sm focus:text-[#2A004E] text-[#fff] font-bold" 
           type="text" 
           id="firstname" 
           required
@@ -62,7 +62,7 @@ export const PersonalInfoPage = () => {
             Last Name
         </label>
         <input 
-          className="border-l border-[#ffeb00] focus:bg-[#ffeb00] outline-none p-2 focus:rounded-sm focus:text-[#2A004E] text-[#ffeb00] font-bold" 
+          className="border-l border-[#fff] focus:bg-[#fff] outline-none p-2 focus:rounded-sm focus:text-[#2A004E] text-[#fff] font-bold" 
           type="text" 
           id="lastname" 
           required
@@ -80,7 +80,7 @@ export const PersonalInfoPage = () => {
             Email
         </label>
         <input 
-          className="border-l border-[#ffeb00] focus:bg-[#ffeb00] outline-none p-2 focus:rounded-sm focus:text-[#2A004E] text-[#ffeb00] font-bold" 
+          className="border-l border-[#fff] focus:bg-[#fff] outline-none p-2 focus:rounded-sm focus:text-[#2A004E] text-[#fff] font-bold" 
           type="email" 
           id="email" 
           value={state.email}
@@ -92,7 +92,7 @@ export const PersonalInfoPage = () => {
          />
       </div>
       <button 
-        className="p-2 border border-[#ffeb00] rounded-sm transition-colors hover:bg-[#ffeb00] hover:text-[#2A004E]" 
+        className="p-2 border border-[#fff] rounded-sm transition-colors hover:bg-[#fff] hover:text-[#2A004E]" 
         type="submit">
         Next
       </button>

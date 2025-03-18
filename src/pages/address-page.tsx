@@ -44,7 +44,7 @@ function nextPage(e: React.FormEvent) {
             Street Address
         </label>
         <input 
-          className="border-l border-[#ffeb00] focus:bg-[#ffeb00] outline-none p-2 focus:rounded-sm focus:text-[#2A004E] text-[#ffeb00] font-bold" 
+          className="border-l border-[#fff] focus:bg-[#fff] outline-none p-2 focus:rounded-sm focus:text-[#2A004E] text-[#fff] font-bold" 
           type="text" 
           id="street" 
           required
@@ -62,7 +62,7 @@ function nextPage(e: React.FormEvent) {
             City
         </label>
         <input 
-          className="border-l border-[#ffeb00] focus:bg-[#ffeb00] outline-none p-2 focus:rounded-sm focus:text-[#2A004E] text-[#ffeb00] font-bold" 
+          className="border-l border-[#fff] focus:bg-[#fff] outline-none p-2 focus:rounded-sm focus:text-[#2A004E] text-[#fff] font-bold" 
           type="text" 
           id="city" 
           required
@@ -80,7 +80,7 @@ function nextPage(e: React.FormEvent) {
             Zip Code
         </label>
         <input 
-          className="border-l border-[#ffeb00] focus:bg-[#ffeb00] outline-none p-2 focus:rounded-sm focus:text-[#2A004E] text-[#ffeb00] font-bold" 
+          className="border-l border-[#fff] focus:bg-[#fff] outline-none p-2 focus:rounded-sm focus:text-[#2A004E] text-[#fff] font-bold" 
           type="text" 
           id="zip" 
           value={state.zipCode}
@@ -93,17 +93,17 @@ function nextPage(e: React.FormEvent) {
       </div>
       <div className="flex *:basis-1/2 gap-4">
       <button 
-        className="p-2 border border-[#ffeb00] rounded-sm transition-colors hover:bg-[#ffeb00] hover:text-[#2A004E]" 
+        className="p-2 border border-[#fff] rounded-sm transition-colors hover:bg-[#fff] hover:text-[#2A004E]" 
         onClick={() => navigate("/")}>
         Back
       </button>
       <button 
-        className="p-2 border border-[#ffeb00] rounded-sm transition-colors hover:bg-[#ffeb00] hover:text-[#2A004E]" 
+        className="p-2 border border-[#fff] rounded-sm transition-colors hover:bg-[#fff] hover:text-[#2A004E]" 
         type="submit">
         Next
       </button>
 
       </div>
-  </form>
+    </form>
   )
 }
