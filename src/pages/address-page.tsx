@@ -1,33 +1,9 @@
-import { useReducer } from "react";
 import { useNavigate } from "react-router-dom";
-
-interface FormData {
-  addressInfo: {
-    street: string;
-    city: string;
-    zipCode: string;
-  }
-}
-
-interface FormAction {
-  type: "UPDATE_ADDRESS_INFO",
-  payload: Partial<FormData["addressInfo"]>
-}
-
-const initialAddressInfoState: FormData["addressInfo"] = {
-  street: "",
-  city: "",
-  zipCode: "",
-};
+import { useFormContext } from "../context/form-context";
 
 export const AddressPage = () => {
-  const [state, dispatch] = useReducer(addressInfoReducer, initialAddressInfoState);
- const navigate = useNavigate();
-
-
- function addressInfoReducer(state = initialAddressInfoState, action: FormAction) {
-  return {...state, ...action.payload}
-}
+    const { state, dispatch } = useFormContext();
+  const navigate = useNavigate();
 
 function nextPage(e: React.FormEvent) {
   e.preventDefault();
@@ -48,7 +24,7 @@ function nextPage(e: React.FormEvent) {
           type="text" 
           id="street" 
           required
-          value={state.street}
+          value={state.addressInfo.street}
           onChange={(e) => dispatch({
             type: "UPDATE_ADDRESS_INFO",
             payload: { street: e.target.value }
@@ -66,7 +42,7 @@ function nextPage(e: React.FormEvent) {
           type="text" 
           id="city" 
           required
-          value={state.city}
+          value={state.addressInfo.city}
           onChange={(e) => dispatch({
             type: "UPDATE_ADDRESS_INFO",
             payload: { city: e.target.value }
@@ -83,7 +59,7 @@ function nextPage(e: React.FormEvent) {
           className="border-l border-[#fff] focus:bg-[#fff] outline-none p-2 focus:rounded-sm focus:text-[#2A004E] text-[#fff] font-bold" 
           type="text" 
           id="zip" 
-          value={state.zipCode}
+          value={state.addressInfo.zipCode}
           onChange={(e) => dispatch({
             type: "UPDATE_ADDRESS_INFO",
             payload: { zipCode: e.target.value }
@@ -94,7 +70,9 @@ function nextPage(e: React.FormEvent) {
       <div className="flex *:basis-1/2 gap-4">
       <button 
         className="p-2 border border-[#fff] rounded-sm transition-colors hover:bg-[#fff] hover:text-[#2A004E]" 
-        onClick={() => navigate("/")}>
+        onClick={() => navigate("/")}
+        type="button"
+        >
         Back
       </button>
       <button 

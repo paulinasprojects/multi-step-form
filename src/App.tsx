@@ -1,3 +1,4 @@
+import { FormProvider } from "./context/form-context"
 import { Layout } from "./layouts/layout"
 import { AddressPage } from "./pages/address-page"
 import { NotFoundPage } from "./pages/not-found-page"
@@ -36,6 +37,8 @@ const router = createBrowserRouter(routes)
 
 export default function App() {
   return (
-    <RouterProvider router={router}/>
+    <FormProvider>
+      <RouterProvider router={router}/>
+    </FormProvider>
   )
 }

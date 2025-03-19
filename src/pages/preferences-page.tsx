@@ -1,35 +1,9 @@
-import { useReducer } from "react";
 import { useNavigate } from "react-router-dom";
-
-
-interface FormData {
-  preferences: {
-    newsletter: boolean;
-    notifications: boolean;
-    theme: "light" | "dark";
-  }
-}
-
-interface FormAction {
-  type: "UPDATE_PREFERENCES",
-  payload: Partial<FormData["preferences"]>
-}
-
-const initialPreferencesState: FormData["preferences"] = {
-  newsletter: false,
-  notifications: true,
-  theme: "dark",
-};
+import { useFormContext } from "../context/form-context";
 
 export const PreferencesPage = () => {
-
-  const [state, dispatch] = useReducer(addressInfoReducer, initialPreferencesState);
+  const { state, dispatch } = useFormContext();
   const navigate = useNavigate();
- 
- 
-  function addressInfoReducer(state = initialPreferencesState, action: FormAction) {
-   return {...state, ...action.payload}
- }
  
  function nextPage (e: React.FormEvent) {
    e.preventDefault();
@@ -49,7 +23,7 @@ export const PreferencesPage = () => {
         className="appearance-none size-4 bg-[#fff] hover:bg-slate-300 rounded-full checked:bg-green-500 duration-75 cursor-pointer" 
         type="checkbox" 
         id="newsletter"
-        checked={state.newsletter}
+        checked={state.preferences.newsletter}
         onChange={(e) => dispatch({
           type: "UPDATE_PREFERENCES",
           payload: { newsletter: e.target.checked }
@@ -67,7 +41,7 @@ export const PreferencesPage = () => {
         className="appearance-none size-4 bg-[#fff] hover:bg-slate-300 rounded-full checked:bg-green-500 duration-75 cursor-pointer" 
         type="checkbox" 
         id="notifications"
-        checked={state.notifications}
+        checked={state.preferences.notifications}
         onChange={(e) => dispatch({
           type: "UPDATE_PREFERENCES",
           payload: { notifications: e.target.checked }
@@ -83,7 +57,7 @@ export const PreferencesPage = () => {
           type="radio" 
           id="theme" 
           value="light"
-          checked={state.theme === "light"}
+          checked={state.preferences.theme === "light"}
           onChange={(e) => dispatch({
             type: "UPDATE_PREFERENCES",
             payload: { theme: e.target.value as "light" | "dark"}
@@ -98,7 +72,7 @@ export const PreferencesPage = () => {
           type="radio" 
           id="theme" 
           value="dark"
-          checked={state.theme === "dark"}
+          checked={state.preferences.theme === "dark"}
           onChange={(e) => dispatch({
             type: "UPDATE_PREFERENCES",
             payload: { theme: e.target.value as "light" | "dark" }
@@ -112,7 +86,9 @@ export const PreferencesPage = () => {
     <div className="flex *:basis-1/2 gap-4">
     <button 
       className="p-2 border border-[#fff] rounded-sm transition-colors hover:bg-[#fff] hover:text-[#2A004E]" 
-      onClick={() => navigate("/address")}>
+      onClick={() => navigate("/address")}
+      type="button"
+      >
       Back
     </button>
     <button 

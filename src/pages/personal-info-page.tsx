@@ -1,33 +1,9 @@
-import { useReducer } from "react";
 import { useNavigate } from "react-router-dom";
-
-interface FormData {
-  personalInfo: {
-    firstName: string;
-    lastName: string;
-    email: string;
-  }
-}
-
-interface FormAction {
-  type: "UPDATE_PERSONAL_INFO",
-  payload: Partial<FormData["personalInfo"]>
-}
-
-const initialPersonalInfoState: FormData["personalInfo"] = {
-  firstName: "",
-  lastName: "",
-  email: "",
-};
+import { useFormContext } from "../context/form-context";
 
 export const PersonalInfoPage = () => {
-  const [state, dispatch] = useReducer(personalInfoReducer, initialPersonalInfoState);
-
- const navigate = useNavigate()
-
-  function personalInfoReducer(state = initialPersonalInfoState, action: FormAction) {
-    return {...state, ...action.payload}
-  }
+  const { state, dispatch } = useFormContext();
+  const navigate = useNavigate();
 
   function nextPage(e: React.FormEvent) {
     e.preventDefault();
@@ -48,7 +24,7 @@ export const PersonalInfoPage = () => {
           type="text" 
           id="firstname" 
           required
-          value={state.firstName}
+          value={state.personalInfo.firstName}
           onChange={(e) => dispatch({
             type: "UPDATE_PERSONAL_INFO",
             payload: { firstName: e.target.value }
@@ -66,7 +42,7 @@ export const PersonalInfoPage = () => {
           type="text" 
           id="lastname" 
           required
-          value={state.lastName}
+          value={state.personalInfo.lastName}
           onChange={(e) => dispatch({
             type: "UPDATE_PERSONAL_INFO",
             payload: { lastName: e.target.value }
@@ -83,7 +59,7 @@ export const PersonalInfoPage = () => {
           className="border-l border-[#fff] focus:bg-[#fff] outline-none p-2 focus:rounded-sm focus:text-[#2A004E] text-[#fff] font-bold" 
           type="email" 
           id="email" 
-          value={state.email}
+          value={state.personalInfo.email}
           onChange={(e) => dispatch({
             type: "UPDATE_PERSONAL_INFO",
             payload: { email: e.target.value }
