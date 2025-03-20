@@ -8,28 +8,37 @@ Features
 - Responsive Design: The form is designed to be responsive, providing an optimal user experience across various devices.
 
 Technologies Used
-- React: A JavaScript library for building user interfaces.
-- TypeScript: A statically typed superset of JavaScript.
-- TailwindCSS: For styling and making the pages responsive.
+- React
+- TypeScript
+- TailwindCSS
 
 
 Getting Started
 To run this project locally, follow these steps:
 
 Clone the Repository:
-
+```js
 git clone https://github.com/paulinasprojects/multi-step-form.git
+```
 
+```js
 cd multi-step-form
+```
 
 Install Dependencies:
 
+```js
 npm install
+```
 
 Start the Development Server:
 Launch the application locally:
+```js
 npm run dev
+```
 
 The application will be accessible at 
-http://localhost:5173.
+```js
+http://localhost:5173
+```
 
