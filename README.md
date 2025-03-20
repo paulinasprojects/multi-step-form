@@ -1,4 +1,4 @@
-Multi-Step Form example using useReducer and useContext hooks.
+# Multi-Step Form example using useReducer and useContext hooks.
 
 This simple project is a multi-step form application built with React, TypeScript, TailwindCSS. We are utilizing the useReducer and useContext hooks in React to  provide the users seamless experience to complete a sequence of steps, allowing navigation between them, input validation, and a final summary before submission.
 
